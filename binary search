@@ -1,0 +1,21 @@
+def binarysearch(a,start,end,k):
+    if(start<=end):
+        mid=(start+end)//2
+        if k ==a[mid]:
+            return mid
+        elif k<a[mid]:
+            return binarysearch(a,start,mid-1,k)
+        else:
+            binarysearch(a,mid+1,end,k)
+    else:
+        return -1
+l=[]
+n=int(input("enter the number of elements"))
+for i in range(n):
+    l.append(int(input("enter the elemnts")))
+k=int(input("enter the number to be searched"))
+p=binarysearch(l,0,n-1,k)
+if(p!=-1):
+    print("element found at",p)
+else:
+    print("element not found")
