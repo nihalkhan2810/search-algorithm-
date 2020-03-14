@@ -1,0 +1,27 @@
+def interpolationsearch(l,n,x):
+    l0=0
+    hi=n-1
+    while l0<=hi and x>=l[l0] and x<=l[hi]:
+        if l0==hi:
+            if l[l0]==x:
+                return l0
+            return -1
+        pos=l0 + int(((float(hi-l0)/l[hi]-l[l0]))*(x-l[l0]))
+
+        if l[pos]==x:
+            return pos
+        elif l[pos]<x:
+            l0= pos + 1
+        else:
+            hi= pos - 1
+    return -1
+l=[]
+n= int(input("enter the number of elements"))
+for i in range(n):
+    l.append(int(input("enter the elements")))
+x=int(input("enter the element to be searched"))
+result = interpolationsearch(l,n,x)
+if result != -1 :
+    print("element found at positon",result)
+else:
+    print("element not found")
